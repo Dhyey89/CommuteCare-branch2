@@ -9,8 +9,10 @@ import {
 } from "../Routes/Login/AuthService";
 import "./Chat.css";
 import { socket } from "../Assets/socket";
+import { initReactI18next, useTranslation, Translation } from "react-i18next";
 
 const Chat = (props) => {
+  const { t } = useTranslation();
   const bottomRef = useRef(null);
   const [sendMessage, setsendMessage] = useState({
     sender: "user",
