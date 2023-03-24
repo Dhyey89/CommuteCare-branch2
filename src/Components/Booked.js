@@ -57,11 +57,6 @@ const Booked = (props) => {
   }, []);
 
 
-  const goTochatPage = (id, name) => {
-    
-    navigate('/chat',{state:{id,name}});
-    
-  }
    
   return (
     
@@ -101,25 +96,7 @@ const Booked = (props) => {
                       }}
 
                     >Home</Button>
-                    <Button
-                      variant="outlined"
-                      sx={{
-                        ":hover": {
-                          bgcolor: "#006e5f4a",
-                          borderColor: "#006E60",
-                        },
-                        color: "white",
-                        backgroundColor: "#00720B",
-                        borderColor: "#006E60",
-                        width: 100,
-                      }}
-                      
-                      onClick={(e) => {
-                        e.preventDefault();
-                        goTochatPage(props.PersonId, props.PersonName);
-                      }}
-
-                    >Chat</Button>
+                    
             </div>
           </div>}
         

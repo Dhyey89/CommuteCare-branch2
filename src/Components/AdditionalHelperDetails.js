@@ -13,7 +13,7 @@ import image from '../Assets/home-page.jpg';
 import { additionalDetailsHelper, logout } from '../Routes/Login/AuthService';
 import { nationalityPlaces } from '../Assets/data';
 import { DatePicker } from '@mui/x-date-pickers';
-import { Button, FormControl, FormHelperText, InputLabel, MenuItem, Select } from '@mui/material';
+import { Button, FormControl, FormHelperText, InputLabel, MenuItem, NativeSelect, Select } from '@mui/material';
 
 
 const AdditionalHelperDetails = () => {
@@ -196,7 +196,7 @@ const AdditionalHelperDetails = () => {
       }
       return false;
     }
-    const date = dob.$D+"/"+(dob.$M +1)+"/"+dob.$y;
+    const date = (dob.$M +1)+"/"+dob.$D+"/"+dob.$y;
     try {
       await additionalDetailsHelper(firstName, lastName, gender, date, phone, bio, nationality);
       navigate('/helperAvailability');
@@ -217,6 +217,20 @@ const AdditionalHelperDetails = () => {
     <div className='signUp'>
       <div className='logo'>
           <img src={logo} alt='logo-img' className='logo-img'></img>
+          <FormControl sx={{width: 100}}>
+                    <NativeSelect
+                    defaultValue={30}
+                    inputProps={{
+                        name: 'age',
+                        id: 'uncontrolled-native',
+                    }}
+                    >
+                    <option value="English">en-US</option>
+                    <option value="French">fr-FR</option>
+                    <option value="German">de-DE</option>
+                    <option value="Spanish">es-ES</option>
+                    </NativeSelect>
+                </FormControl>
       </div>
       <div className='signup-grid'>
 
@@ -349,7 +363,7 @@ const AdditionalHelperDetails = () => {
                               value={phone}
                               onChange={(e) => {
                                 setPhone(e.target.value);}}
-                              inputProps={{pattern: '[0-9]{10}'}}
+                              inputProps={{pattern: '[0-9]{10}', maxLength: 10 ,}}
                               
                               required/>
                         

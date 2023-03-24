@@ -4,7 +4,7 @@ import "./ForgotPasswordPage.css";
 import logo from "../Assets/logo.jpg";
 
 import { forgotPass, forgotPassHelper } from "../Routes/Login/AuthService";
-import { Button, TextField } from "@mui/material";
+import { Button, FormControl, NativeSelect, TextField } from "@mui/material";
 
 const ForgotPasswordPage = (props) => {
   const [email, setEmail] = useState("");
@@ -64,6 +64,20 @@ const ForgotPasswordPage = (props) => {
     <div className="forgot">
       <div className="logo">
         <img src={logo} alt="logo-img" className="logo-img"></img>
+        <FormControl sx={{width: 100}}>
+                    <NativeSelect
+                    defaultValue={30}
+                    inputProps={{
+                        name: 'age',
+                        id: 'uncontrolled-native',
+                    }}
+                    >
+                    <option value="English">en-US</option>
+                    <option value="French">fr-FR</option>
+                    <option value="German">de-DE</option>
+                    <option value="Spanish">es-ES</option>
+                    </NativeSelect>
+                </FormControl>
       </div>
       <div className="forgot-container">
         {!otpSent ? (

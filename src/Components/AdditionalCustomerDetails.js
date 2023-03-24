@@ -15,7 +15,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { DatePicker } from '@mui/x-date-pickers';
-import { Button, FormHelperText } from '@mui/material';
+import { Button, FormHelperText, NativeSelect } from '@mui/material';
 
 const AdditionalCustomerDetails = () => {
   const [firstName, setFirstName] = useState("");
@@ -160,7 +160,7 @@ const AdditionalCustomerDetails = () => {
       }
       return false;
     }
-    const date = dob.$D+"/"+(dob.$M +1)+"/"+dob.$y;
+    const date = (dob.$M +1)+"/"+dob.$D+"/"+dob.$y;
     console.log("dob: ", date);
     try {
       await additionalDetails(firstName, lastName, gender, date, phone);
@@ -179,6 +179,20 @@ const AdditionalCustomerDetails = () => {
     <div className='signUp'>
       <div className='logo'>
           <img src={logo} alt='logo-img' className='logo-img'></img>
+          <FormControl sx={{width: 100}}>
+                    <NativeSelect
+                    defaultValue={30}
+                    inputProps={{
+                        name: 'age',
+                        id: 'uncontrolled-native',
+                    }}
+                    >
+                    <option value="English">en-US</option>
+                    <option value="French">fr-FR</option>
+                    <option value="German">de-DE</option>
+                    <option value="Spanish">es-ES</option>
+                    </NativeSelect>
+                </FormControl>
       </div>
       <div className='signup-grid'>
       
