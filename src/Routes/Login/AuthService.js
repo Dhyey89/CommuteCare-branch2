@@ -237,7 +237,7 @@ export const editAvailability = async (availability) => {
       Tuesday: availability.Tuesday,
       Wednesday: availability.Wednesday,
       Thursday: availability.Thursday,
-      Friday: availability.Firday,
+      Friday: availability.Friday,
       Saturday: availability.Saturday,
       Sunday: availability.Sunday,
     },
