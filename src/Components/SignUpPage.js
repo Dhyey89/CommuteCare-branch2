@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SignUpPage.css";
 import logo from "../Assets/logo.jpg";
@@ -18,6 +18,7 @@ import { FormControl, NativeSelect } from "@mui/material";
 
 import i18n from "../Translation/i18n";
 import { initReactI18next, useTranslation, Translation } from "react-i18next";
+import CustomNav from "./CustomNav";
 
 const SignUpPage = (props) => {
   const { t } = useTranslation();
@@ -135,25 +136,16 @@ const SignUpPage = (props) => {
     }
   };
 
+  useEffect(() => {
+        
+    i18n.changeLanguage(localStorage.getItem('lang'));
+    console.log('lang--',localStorage.getItem('lang'))
+    
+  }, [])
+
   return (
     <div className="signUp">
-      <div className="logo">
-        <img src={logo} alt="logo-img" className="logo-img"></img>
-        <FormControl sx={{width: 100}}>
-                    <NativeSelect
-                    defaultValue={30}
-                    inputProps={{
-                        name: 'age',
-                        id: 'uncontrolled-native',
-                    }}
-                    >
-                    <option value="English">en-US</option>
-                    <option value="French">fr-FR</option>
-                    <option value="German">de-DE</option>
-                    <option value="Spanish">es-ES</option>
-                    </NativeSelect>
-                </FormControl>
-      </div>
+      <CustomNav />
       <div className="signup-grid">
         <form onSubmit={handleSubmit} className="signup-form">
           {/*<h2>SignUp</h2> */}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { passwordChange, passwordChangeHelper } from '../Routes/Login/AuthService';
@@ -9,6 +9,7 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 // import './Password-icons.css';
 import i18n from "../Translation/i18n";
 import { initReactI18next, useTranslation, Translation } from "react-i18next";
+import CustomNav from './CustomNav';
 const NewPassword = () => {
   const { t } = useTranslation();
   const [password, setPassword] = useState("");
@@ -102,25 +103,16 @@ const NewPassword = () => {
     }
 
   };
+
+  useEffect(() => {
+        
+    i18n.changeLanguage(localStorage.getItem('lang'));
+    console.log('lang--',localStorage.getItem('lang'))
+    
+  }, [])
   return (
     <div className='new-password-page'>
-      <div className='logo'>
-          <img src={logo} alt='logo-img' className='logo-img'></img>
-          <FormControl sx={{width: 100}}>
-                    <NativeSelect
-                    defaultValue={30}
-                    inputProps={{
-                        name: 'age',
-                        id: 'uncontrolled-native',
-                    }}
-                    >
-                    <option value="English">en-US</option>
-                    <option value="French">fr-FR</option>
-                    <option value="German">de-DE</option>
-                    <option value="Spanish">es-ES</option>
-                    </NativeSelect>
-                </FormControl>
-      </div>
+      <CustomNav />
       <div className="newPassword">
         <form onSubmit={handleSubmit} className="signup-form">
           <div className="newPassword-container">

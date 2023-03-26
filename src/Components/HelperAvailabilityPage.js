@@ -137,6 +137,7 @@ const HelperAvailabilityPage = () => {
   useEffect(() => {
       
     fetchAvailability();
+    i18n.changeLanguage(localStorage.getItem('lang'));
     
   }, []);
 
@@ -291,7 +292,7 @@ const HelperAvailabilityPage = () => {
           </div>
           <div className="Week-days">
             <div className="Week-day">
-              <p>{t("SundayLabel")}</p>
+              <p>{t("SaturdayLabel")}</p>
             </div>
             <TimeField
               value={startTimeSun}

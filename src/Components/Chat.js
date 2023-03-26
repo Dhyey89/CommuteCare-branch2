@@ -9,10 +9,14 @@ import {
 } from "../Routes/Login/AuthService";
 import "./Chat.css";
 import { socket } from "../Assets/socket";
+import i18n from "../Translation/i18n";
 import { initReactI18next, useTranslation, Translation } from "react-i18next";
 
 const Chat = (props) => {
+
   const { t } = useTranslation();
+
+
   const bottomRef = useRef(null);
   const [sendMessage, setsendMessage] = useState({
     sender: "user",
@@ -61,6 +65,7 @@ const Chat = (props) => {
           : getMessagesHelper(),
       2000
     );
+    i18n.changeLanguage(localStorage.getItem('lang'));
   }, []);
 
   const handleChatSendUser = async () => {
@@ -148,7 +153,7 @@ const Chat = (props) => {
           </div>
         </div>
         <div className="footer">
-          {localStorage.getItem("UserType") === "Customer" && 
+          {/* {localStorage.getItem("UserType") === "Customer" && 
           
           <Button
                       variant="outlined"
@@ -170,7 +175,7 @@ const Chat = (props) => {
                         navigate('/report');
                       }}
             >{t("ReportBtn")}</Button>
-            }
+            } */}
                   
           
           <TextField

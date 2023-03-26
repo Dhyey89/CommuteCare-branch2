@@ -7,6 +7,7 @@ import { forgotPass, forgotPassHelper } from "../Routes/Login/AuthService";
 import { Button, FormControl, NativeSelect, TextField } from "@mui/material";
 import i18n from "../Translation/i18n";
 import { initReactI18next, useTranslation, Translation } from "react-i18next";
+import CustomNav from "./CustomNav";
 const ForgotPasswordPage = (props) => {
    const { t } = useTranslation();
   const [email, setEmail] = useState("");
@@ -62,23 +63,16 @@ const ForgotPasswordPage = (props) => {
     setOtpSent(true);
   };
 
+  useEffect(() => {
+        
+    i18n.changeLanguage(localStorage.getItem('lang'));
+    console.log('lang--',localStorage.getItem('lang'))
+    
+  }, [])
+
   return (
     <div className="forgot">
-      <div className="logo">
-        <img src={logo} alt="logo-img" className="logo-img"></img>
-        <FormControl sx={{ width: 100 }}>
-          <NativeSelect
-            defaultValue={30}
-            inputProps={{
-              name: "age",
-              id: "uncontrolled-native",
-            }}
-          >
-            <option value="en">en-US</option>
-            <option value="fr">fr-FR</option>
-          </NativeSelect>
-        </FormControl>
-      </div>
+      <CustomNav />
       <div className="forgot-container">
         {!otpSent ? (
           <div className="forgot-component">

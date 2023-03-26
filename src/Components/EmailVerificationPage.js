@@ -12,6 +12,7 @@ import { verifyOTP, resendOTP, resendOTPHelper, verifyOTPHelper, logout } from '
 import { FormControl, NativeSelect } from '@mui/material';
 import i18n from "../Translation/i18n";
 import { initReactI18next, useTranslation, Translation } from "react-i18next";
+import CustomNav from './CustomNav';
 const ForgotPasswordPage = (props) => {
 
   const { t } = useTranslation();
@@ -27,7 +28,7 @@ const ForgotPasswordPage = (props) => {
 
 
   useEffect(() => {
-
+    i18n.changeLanguage(localStorage.getItem('lang'));
     let timer;
     if (remainingTime > 0 && otpSent) {
       timer = setTimeout(() => setRemainingTime(remainingTime - 1), 1000);
@@ -118,21 +119,7 @@ const ForgotPasswordPage = (props) => {
 
   return (
     <div className="emailVerification">
-      <div className="logo">
-        <img src={logo} alt="logo-img" className="logo-img"></img>
-        <FormControl sx={{ width: 100 }}>
-          <NativeSelect
-            defaultValue={30}
-            inputProps={{
-              name: "age",
-              id: "uncontrolled-native",
-            }}
-          >
-            <option value="English">en-US</option>
-            <option value="French">fr-FR</option>
-          </NativeSelect>
-        </FormControl>
-      </div>
+      <CustomNav />
       <div className="emailVerificationGrid">
         <div className="emailVerificationContent">
           <div className="emailVerificationContainer">

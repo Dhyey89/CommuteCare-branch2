@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 import { login, loginHelper } from "../Routes/Login/AuthService";
@@ -15,6 +15,7 @@ import { FormControl, NativeSelect } from "@mui/material";
 
 import i18n from "../Translation/i18n";
 import { initReactI18next, useTranslation, Translation } from "react-i18next";
+import CustomNav from "./CustomNav";
 const LoginPage = (props) => {
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
@@ -98,23 +99,16 @@ const LoginPage = (props) => {
     }
   };
 
+  useEffect(() => {
+        
+    i18n.changeLanguage(localStorage.getItem('lang'));
+    console.log('lang--',localStorage.getItem('lang'))
+    
+  }, [])
+
   return (
     <div className="login">
-      <div className="logo">
-        <img src={logo} alt="logo-img" className="logo-img"></img>
-        <FormControl sx={{width: 100}}>
-                    <NativeSelect
-                    defaultValue={30}
-                    inputProps={{
-                        name: 'age',
-                        id: 'uncontrolled-native',
-                    }}
-                    >
-                    <option value="en">en</option>
-                    <option value="fr">fr</option>
-                    </NativeSelect>
-                </FormControl>
-      </div>
+      <CustomNav />
       <div className="login-comp">
         <form className="login-form" id="login">
           {/*<h2>Login</h2>

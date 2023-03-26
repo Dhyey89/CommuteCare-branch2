@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './ReviewAndReport.css';
 import logo from "../Assets/logo.jpg";
 import { Alert, Button, FormControl, NativeSelect, Rating, TextField } from '@mui/material';
 import { useState } from 'react';
 import i18n from "../Translation/i18n";
 import { initReactI18next, useTranslation, Translation } from "react-i18next";
+import CustomNav from './CustomNav';
 const Review = () => {
   const { t } = useTranslation();
     const [star, setstar] = useState(0);
@@ -48,25 +49,16 @@ const Review = () => {
       
     };
 
+    useEffect(() => {
+        
+      i18n.changeLanguage(localStorage.getItem('lang'));
+      console.log('lang--',localStorage.getItem('lang'))
+      
+    }, [])
+
   return (
     <div className='review'>
-        <div className='logo'>
-          <img src={logo} alt='logo-img' className='logo-img'></img>
-          <FormControl sx={{width: 100}}>
-                    <NativeSelect
-                    defaultValue={30}
-                    inputProps={{
-                        name: 'age',
-                        id: 'uncontrolled-native',
-                    }}
-                    >
-                    <option value="English">en-US</option>
-                    <option value="French">fr-FR</option>
-                    <option value="German">de-DE</option>
-                    <option value="Spanish">es-ES</option>
-                    </NativeSelect>
-                </FormControl>
-      </div>
+        <CustomNav />
       <div className="review-container">
         <div className="review-contents">
           <p className="forgot-label">{t("FeedbackTitle")}</p>
