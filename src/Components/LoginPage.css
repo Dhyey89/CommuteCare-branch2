@@ -14,8 +14,6 @@
   flex-direction: column;
   padding-top: 10%;
   padding-left: 20%;
-  
-
 }
 
 .login-container{
@@ -75,10 +73,9 @@
     margin: 8px 0;
   }
 
-.login-form .login-container .label{
+.login-form{
     font-weight: 400;
     border-radius: 0px;
-    
 }
 
 .input-field {
@@ -107,58 +104,103 @@
   padding-bottom: 10%;
 }
 
+.login-button
+{
+  margin-left: 20%;
+}
+
 
   @media screen and (max-width: 480px)
 {
-  .login{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+
+.login{
+  width: 100%;
+  background-color: #ECF7E6;
 }
 
 .login-form{
+  margin-left: 10%;
+  padding: 0%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  background-color: #fff;
-  font-size: large;
-  width: 90%;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  width: 100%;
+  z-index: 1;
+  /* background-color: rgba(236, 247, 230, .8); */
 }
 
+.login-Img{
+  display: flex;
+  width: 100%;
+  height: 60vh;
+  position: fixed;
+  justify-content: center;
+  padding-right: 10%;
+  opacity: 0.7;
+}
 
-.input_field {
-  width: 350px; 
-  padding: 10px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+.login-Img::after{
+    content: "";
+    width: 100%;
+    height: 60vh; 
+    position: fixed;
+    justify-content: center;
+    padding-right: 10%;
+    /* background: linear-gradient(0deg, rgba(51, 144, 133, 0.5), rgba(51, 144, 133, 0.5)); */
+    background: linear-gradient(0deg, rgba(236, 247, 230, 5), rgba(236, 247, 230, 5));
+    background-color: rgba(236, 247, 230, .9);
+    opacity: 0.7;
+}
+
+.login-form .login-container{
+  width: 100%;
+  margin-left: 0%;
+}
+
+  
+.icons{
+  position: absolute;
+  text-align: center;
+}
+
+.login-form{
+  width: 100%;
+    font-weight: 400;
+    border-radius: 0px;
+    box-sizing: inherit;
+}
+
+.input-field {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 } 
 
 .error {
   color: red;
-  margin-top: 10px;
-  font-size: 14px;
+  margin-top: 5px;
 }
 
-.btn
-  {
-    font-size: large;
-    color: white;
-    width: 100%;
-  }
-
-  .forgot-password{
+.login-link{
+    margin-left: 0%;
     text-decoration: none;
-    color: #098eed;
-    font-size: 2.5vh;
+    color: #10951D;
+    font-size: 14px;
+  
   }
 
-.sign-up{
-  text-decoration: none;
-  color: #f1a90f;
-  font-size: 3vh;
+.login-links{
+  width: 100%;
+  padding: 5%;
+  display: flex;
+  gap: 10%;
+  padding-bottom: 10%;
 }
 
+.login-button
+{
+  margin-left: 0%;
+}
 }
 

@@ -11,9 +11,6 @@
     border-bottom-right-radius: 20%;
 }
 
-
-
-
 .home-container{
     display: flex;
 }
@@ -22,8 +19,6 @@
     width: 100%;
     margin: 5%;
 }
-
-
 
 .home-content h1{
     font-family: 'Inter';
@@ -59,5 +54,73 @@
     padding-left: 1%;
 }
 
-
-
+@media screen and (max-width: 480px)
+{
+    .logo-img{
+        height: 150px;
+      }
+    .home{
+        /* width: 100%; */
+    }
+    
+    .eclipse{
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background: #ECF7E6;
+        border-bottom-left-radius: 0%;
+        border-bottom-right-radius: 0%;
+    }
+    
+    .home-container{
+        display: flex;
+    }
+    
+    .home-content{
+        width: 100%;
+        /* margin: 5%; */
+        z-index: 2;
+    }
+    
+    .home-content h1{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 45px;
+        color: #187a00;
+    }
+    
+    .home-Img{
+        display: flex;
+        width: 100%;
+        height: 60vh;
+        position: fixed;
+        justify-content: center;
+        padding-right: 10%;
+        opacity: 0.7;
+    }
+    
+    .home-Img::after{
+        content: "";
+        width: 100%;
+        height: 60vh; 
+        position: fixed;
+        justify-content: center;
+        padding-right: 10%;
+        /* background: linear-gradient(0deg, rgba(51, 144, 133, 0.5), rgba(51, 144, 133, 0.5)); */
+        background: linear-gradient(0deg, rgba(236, 247, 230, 5), rgba(236, 247, 230, 5));
+        background-color: rgba(236, 247, 230, .9);
+        opacity: 0.7;
+    }
+    
+    .homeimg{
+        background-size: cover;
+        background-position: center;
+        object-fit: cover; 
+    }
+    
+    .home-button{
+        padding-top: 10%;
+        padding-left: 1%;
+    }
+}
