@@ -111,7 +111,7 @@ const Reservation = () => {
                   maxDate={maxDate}
                   required
                   renderInput={(params) => (
-                    <TextField sx={{ width: "100%" }} {...params} />
+                    <TextField sx={{ width: "80%" }} {...params} />
                   )}
                 />
               </LocalizationProvider>
@@ -130,10 +130,10 @@ const Reservation = () => {
             <div className="time-required">
               <p className="label">{t("DurationLabel")}</p>
               <Stack
-                spacing={2}
+                spacing={'8%'}
                 direction="row"
                 required
-                sx={{ height: 50, width: 500, gap: 3 }}
+                sx={{ height: 50, width: '100%' }}
               >
                 <Button
                   variant="outlined"
@@ -194,10 +194,10 @@ const Reservation = () => {
                 rows={3}
                 maxRows={4}
                 sx={{
-                  width: 450,
+                  width: '100%',
                   marginTop: 5,
                 }}
-                inputProps={{ maxLength: 150 }}
+                inputProps={{ maxLength: '100%' }}
                 label={t("AdditonalDescription")}
               />
             </div>
