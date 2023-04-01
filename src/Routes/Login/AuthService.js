@@ -527,3 +527,17 @@ export const completeBooking = async (bookingId) => {
   });
   return response;
 };
+
+export const reviewFeedback = async (bookingId,rating,feedback) => {
+  const token = localStorage.getItem("User");
+  const response = axios.post(`${url}/feedback`,{
+    bookingId: bookingId,
+    rating: rating,
+    feedback: feedback,
+   } ,{
+    headers: {
+      Authorization: `Bearer ${JSON.parse(token)}`,
+    },
+  });
+  return response;
+};
