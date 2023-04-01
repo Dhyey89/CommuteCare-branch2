@@ -30,7 +30,7 @@
         display: flex;
         bottom: 0px;
         margin-top: auto;
-        background-color: #ECF7E6;
+        background-color: rgba(236, 247, 230, .9);
     }
     
     .footer-container{

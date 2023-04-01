@@ -6,16 +6,30 @@ import { useState } from 'react';
 import i18n from "../Translation/i18n";
 import { initReactI18next, useTranslation, Translation } from "react-i18next";
 import CustomNav from './CustomNav';
+import { useLocation } from 'react-router-dom';
+import { reviewFeedback } from '../Routes/Login/AuthService';
+
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Review = () => {
   const { t } = useTranslation();
     const [star, setstar] = useState(0);
     const [starErrorFlag, setstarErrorFlag] = useState(null);
     const [starError, setstarError] = useState("");
+    
+    const [isError, setisError] = useState(null);
 
     const [feedback, setfeedback] = useState("");
     const [feedbackErrorFlag, setfeedbackErrorFlag] = useState(false);
     const [feedbackError, setfeedbackError] = useState("");
 
+    const [feedbackSubmitted, setfeedbackSubmitted] = useState(false);
+
+    const location = useLocation();
+    const queryParam = new URLSearchParams(location.search);
+    const bookingId = queryParam.get('bookingId');
     
 
     const checkFeedback = (feedback) => {
@@ -29,9 +43,11 @@ const Review = () => {
             setfeedbackErrorFlag(false);
             return false;
           }
+         
+
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
     
         if(checkFeedback(feedback)){
@@ -44,6 +60,28 @@ const Review = () => {
             setstarError(t("errorRating"));
             return false;
         }  
+        //console.log("data:",bookingId, star,feedback)
+        try{
+          await reviewFeedback(bookingId, star,feedback);
+          toast.success("Review Submitted Successfully", {
+            position: "bottom-left",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
+            setfeedbackSubmitted(true);
+            
+
+        }catch (error) {
+          console.error('error', error);
+          setfeedbackSubmitted(false);
+          setisError(error.response.data);
+        }
+
 
         //after successful submission
       
@@ -59,7 +97,15 @@ const Review = () => {
   return (
     <div className='review'>
         <CustomNav />
+       {isError? <>
+        <p className="forgot-label">{isError}</p>
+       </> :
       <div className="review-container">
+        {feedbackSubmitted? <>
+          
+          <p className="forgot-label">Thank you for the feedback!!</p>
+        
+        </> :
         <div className="review-contents">
           <p className="forgot-label">{t("FeedbackTitle")}</p>
           <div className="review-stars">
@@ -114,13 +160,25 @@ const Review = () => {
               {t("SubmitBtn")}
             </Button>
           </div>
-        </div>
-      </div>
+        </div>}
+      </div>}
       {starErrorFlag && (
         <Alert variant="outlined" severity="error" className="alert-left">
           {starError}
         </Alert>
       )}
+      <ToastContainer
+          position="bottom-left"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+          />
     </div>
   );
 }

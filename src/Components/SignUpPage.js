@@ -152,7 +152,7 @@ const SignUpPage = (props) => {
       <CustomNav />
       {isLoading? <div className='loading'><ReactLoading type="spin" color="#000" /></div> : <>
       <div className="signup-grid">
-        <form onSubmit={handleSubmit} className="signup-form">
+        <form onSubmit={handleSubmit} className="signup-form-css">
           {/*<h2>SignUp</h2> */}
           <div className="signup-container">
             <div className="signup-field">
