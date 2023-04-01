@@ -3,6 +3,7 @@ import Booked from '../Components/Booked'
 import NavBar from '../Components/NavBar'
 import { useLocation, useNavigate } from 'react-router-dom';
 import i18n from '../Translation/i18n';
+import Footer from '../Components/Footer';
 
 const ConfirmationPage = () => {
     const location = useLocation();
@@ -43,11 +44,10 @@ const ConfirmationPage = () => {
         Date = {location.state.bookdata.date}
 
         />
+        <Footer />
         
     </div>
   )
 }
 
 export default ConfirmationPage
-
-

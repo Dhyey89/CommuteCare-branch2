@@ -1,6 +1,7 @@
 import React from 'react'
 import LoginPage from '../Components/LoginPage'
 import { useLocation } from "react-router-dom";
+import Footer from '../Components/Footer';
 
 
 
@@ -13,9 +14,9 @@ const Login = () => {
   return (
     <div>
         <LoginPage data={location.state.data}/>
-              
+        <Footer />     
     </div>
   )
 }
 
-export default Login
+export default Login

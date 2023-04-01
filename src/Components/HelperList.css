@@ -53,8 +53,6 @@
     
 }
 
-
-
 .helper-details-front .right .buttons .btn{
     border-radius: 25px;
     margin-right: 10px;
@@ -119,7 +117,6 @@
     }
     
     .helper-details-front{
-        
         padding-left: 5%;
         padding-right: 5%;
         height: 12rem;
@@ -157,7 +154,7 @@
     
     .helper-details-back{
         /* padding-top: 5%; */
-        padding: 10%;
+        padding: 5%;
         height: 12rem;
     }
     
@@ -166,5 +163,18 @@
         font-style: italic;
         font-weight: 200;
         text-align: justify;
+    }
+
+    .text
+    {
+        padding-left: 40%;
+    }
+    .gender
+    {
+        padding-left: 40%;
+    }
+    .rating
+    {
+        padding-left: 40%;
     }
 }

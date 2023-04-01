@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom'
 import LoginChoicePage from '../Components/LoginChoicePage'
+import Footer from '../Components/Footer';
 
 const LoginChoice = () => {
   const userLoggedIn = localStorage.getItem('LoggedIn');
@@ -11,9 +12,9 @@ const LoginChoice = () => {
         {userLoggedIn ==='True'? <>
           { userType === 'Customer' && <Navigate to='/customer' />}
           { userType === 'Helper' && <Navigate to='/helperHome'/>}
-          </> : <LoginChoicePage />}
+          </> : <><LoginChoicePage /><Footer /></>}
     </div>
   )
 }
 
-export default LoginChoice
+export default LoginChoice

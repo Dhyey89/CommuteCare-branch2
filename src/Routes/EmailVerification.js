@@ -1,7 +1,8 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom';
 import EmailVerificationPage from '../Components/EmailVerificationPage'
-import NavBar from '../Components/NavBar'
+
+import Footer from '../Components/Footer';
 
 const EmailVerification = () => {
   const location = useLocation();
@@ -9,6 +10,7 @@ const EmailVerification = () => {
     <div>
       
       <EmailVerificationPage data={location.state.data}/>
+      <Footer />
     </div>
   )
 }

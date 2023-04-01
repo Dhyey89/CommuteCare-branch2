@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom';
 import HomePage from '../Components/HomePage';
+import Footer from '../Components/Footer';
 
 
 
@@ -16,12 +17,14 @@ const Home = () => {
       {userLoggedIn === 'true'? <>
       { userType === 'Customer' && <Navigate to='/customer' />}
       { userType === 'Helper' && <Navigate to='/helperHome'/>}
-      </> :
+      </> : <>
       <HomePage />
+      <Footer />
+      </>
       }
-    
+
     </div>
   ) 
 }
 
-export default Home
+export default Home

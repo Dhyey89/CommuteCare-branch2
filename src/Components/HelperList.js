@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { displayAvailHelperList, logout } from '../Routes/Login/AuthService';
 
 import ReactLoading from 'react-loading';
-import { Button } from '@mui/material';
+import { Avatar, Button, Rating } from '@mui/material';
 import i18n from "../Translation/i18n";
 import { initReactI18next, useTranslation, Translation } from "react-i18next";
   const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
@@ -22,14 +22,10 @@ const { t } = useTranslation();
   const navigate = useNavigate();
   const user = localStorage.getItem("User");
 
+  const [profilePhoto, setprofilePhoto] = useState(null);
+
 
   const [jwtError, setjwtError] = useState("");
-
-  
-  
-  
-  
-
 
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -107,19 +103,25 @@ const { t } = useTranslation();
                   >
                     <div className="helper-details-front">
                       <div className="left">
-                        <BsPersonCircle size={100} />
+                      <Avatar src={person.profilePhotoUrl}
+                        sx={{ width: 100, height: 100 }}
+                            >     
+                        </Avatar>
                       </div>
 
                       <div className="right">
-                        <div className="helper-name-rating"></div>
+                        <div className="helper-name-rating">
                         <h3>{person.firstname + " " + person.lastname}</h3>
                         <p className="text">
                           {t("PeopleHelped")}: {person.helped}
                         </p>
-                        <p>
+                        <p className="gender">
                           {t("GenderLabel")}: {person.gender}
                         </p>
-
+                        <p className="rating">
+                        <Rating name="read-only" value={person.rating} precision={0.5} readOnly />
+                        </p>
+                        </div>
                         <div className="buttons">
                           <Button
                             variant="outlined"

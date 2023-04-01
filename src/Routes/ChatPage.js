@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 import Chat from "../Components/Chat";
 import NavBar from "../Components/NavBar";
+import Footer from "../Components/Footer";
 
 const ChatPage = () => {
   
@@ -11,7 +12,8 @@ const ChatPage = () => {
     <div>
        <NavBar />
        <Chat data={location.state.id} name={location.state.name}/>
+       <Footer />
    </div>
  )
 }
-export default ChatPage;
+export default ChatPage;

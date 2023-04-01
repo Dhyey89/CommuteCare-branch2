@@ -87,8 +87,11 @@ const NavBar = () => {
   return (
     <div className={ color ? "header header-bg" : "header"}>
             <Link to="/">
-                <img src={logo} alt="logo-img" className="nav-img"></img>
+            <div className='nav-img'>
+                <img src={logo} alt="logo-img" className='nav-img-img'></img>
+              </div>
             </Link>
+            
             <ul className={click ? "nav-menu active" : "nav-menu"}>
             {
                 userLoggedIn === 'true'? <>

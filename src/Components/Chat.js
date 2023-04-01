@@ -78,10 +78,10 @@ const Chat = (props) => {
         sendMessage.message
       ).then((response) => {
         // emit message to user after adding to messageList
-        socket.to(localStorage.getItem("UserID")).emit("userMessage", {
-          userId: localStorage.getItem("UserID"),
-          message: sendMessage.message,
-        });
+        // socket.to(localStorage.getItem("UserID")).emit("userMessage", {
+        //   userId: localStorage.getItem("UserID"),
+        //   message: sendMessage.message,
+        // });
         setmessageList([...messageList, sendMessage]);
         setsendMessage({ ...sendMessage, message: "" });
       });
@@ -102,10 +102,10 @@ const Chat = (props) => {
         sendMessage.message
       ).then((response) => {
         // emit message to user after adding to messageList
-        socket.to(localStorage.getItem("HelperID")).emit("helperMessage", {
-          userId: localStorage.getItem("HelperID"),
-          message: sendMessage.message,
-        });
+        // socket.to(localStorage.getItem("HelperID")).emit("helperMessage", {
+        //   userId: localStorage.getItem("HelperID"),
+        //   message: sendMessage.message,
+        // });
         setmessageList([...messageList, sendMessage]);
         setsendMessage({ ...sendMessage, message: "" });
       });
@@ -122,7 +122,7 @@ const Chat = (props) => {
   console.log(messageList);
   return (
     <div className="chat">
-      <div className="chat-logo">LOGO</div>
+      {/* <div className="chat-logo"></div> */}
       <div className="chat-container">
         <div className="chat-header">
           <div className="sender-name">{props.name}</div>
@@ -152,7 +152,7 @@ const Chat = (props) => {
             <span></span>
           </div>
         </div>
-        <div className="footer">
+        <div className="chat-footer">
           {/* {localStorage.getItem("UserType") === "Customer" && 
           
           <Button
